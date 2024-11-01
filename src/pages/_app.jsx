@@ -1,4 +1,3 @@
-import { AppProps } from 'next/app';
 import Head from 'next/head';
 import '../styles/global.scss';
 import {ModalPicturesProvider, usePictures} from "@/core/contexts/ModalPicturesContext";

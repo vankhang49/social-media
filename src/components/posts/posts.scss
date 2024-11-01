@@ -207,3 +207,11 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  #post {
+    .post-card {
+      border-radius: 0;
+    }
+  }
+}

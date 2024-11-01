@@ -83,3 +83,11 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  #post-article {
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+  }
+}

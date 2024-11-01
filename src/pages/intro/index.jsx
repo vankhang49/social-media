@@ -20,7 +20,7 @@ export default function Index() {
     };
 
     const handleMoveToHomePage = () => {
-        router.push("/").catch(console.error);
+        router.push("/login").catch(console.error);
     }
 
     return (

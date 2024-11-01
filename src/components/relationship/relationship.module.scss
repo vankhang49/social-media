@@ -218,6 +218,12 @@
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .relationship {
+    padding-top: 50px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .relationship {
     display: none;

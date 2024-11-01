@@ -5,6 +5,7 @@ import Posts from "@/components/posts/Posts";
 import {PostArticles} from "@/components/posts/PostArticles";
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
+import {MainHeader} from "@/components/header/MainHeader";
 
 function Index() {
     const [isAuth, setIsAuth] = useState(false);
@@ -21,7 +22,8 @@ function Index() {
 
     return (
         <div id="home-page" className="home-page">
-            <MainSidebar></MainSidebar>
+            <MainHeader />
+            <MainSidebar />
             <div className='container'>
                 <PostArticles/>
                 <Posts/>

@@ -136,6 +136,12 @@
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .mainSidebar {
+    padding-top: 60px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .mainSidebar {
     display: none;
