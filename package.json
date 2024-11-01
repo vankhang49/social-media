@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@react-three/drei": "7.26.1",
-    "@react-three/fiber": "7.0.21",
+    "@react-three/fiber": "^8.17.10",
     "framer-motion": "6.0.0-beta.5",
     "framer-motion-3d": "6.0.0-beta.5",
     "next": "14.2.15",
