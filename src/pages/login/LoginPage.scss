@@ -1,0 +1,430 @@
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#login {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(90deg, rgb(224,223,228) 0%, rgb(219,223,234) 35%, rgb(207,216,247) 100%);
+
+  .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content-wrapper {
+      width: 800px;
+      height: 500px;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 25px;
+      position: relative;
+
+      .come-back {
+        top: 20px;
+        left: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+
+        svg {
+          margin-right: 5px;
+        }
+
+        &:hover {
+          color: #5c5a9e;
+
+          svg {
+            animation: moveLeft 0.5s ease-in-out infinite alternate;
+          }
+        }
+      }
+
+      .login-box {
+        width: 50%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .login-form{
+          width: 100%;
+          height: 90%;
+          text-align: center;
+
+          h1 {
+            font-size: 2.5rem;
+            padding: 50px 0 20px 0;
+          }
+
+          .form-password {
+            position: relative;
+            height: 60px;
+            svg {
+              position: absolute;
+              top: 16px;
+              right: 60px;
+            }
+          }
+
+          .form-group {
+            padding: 5px;
+            .icon-btn {
+              width: 40px;
+              height: 40px;
+              border-radius: 5px;
+              border: 1px solid #CFCFCF;
+              margin: 0 5px;
+              background-color: #fff;
+              svg {
+                width: 20px;
+                height: 20px;
+              }
+
+              &:hover {
+                background-color: #ccc;
+              }
+            }
+
+            p {
+              font-size: 1rem;
+            }
+
+            .form-input {
+              width: 80%;
+              height: 40px;
+              border-radius: 5px;
+              outline: none;
+              border: none;
+              padding: 10px;
+              background-color: #EEEEEE;
+            }
+
+            .submit-btn {
+              width: 33.33%;
+              height: 40px;
+              background-color: #20283B;
+              border-radius: 5px;
+              color: #fff;
+              margin: 10px;
+
+              img {
+                width: 40px;
+                height: 40px;
+              }
+            }
+          }
+
+          .remember-forgot {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            label {
+              padding: 0 10px;
+            }
+
+            a:hover {
+              color: #5c5a9e;
+            }
+          }
+        }
+      }
+
+      .overlay {
+        width: 50%;
+        height: 100%;
+        background-color: #20283B;
+        border-radius: 35% 25px 25px 35%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .overlay-element {
+          width: 100%;
+          height: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            width: 50%;
+            height: 100%;
+            border-radius: 15px;
+          }
+
+          h2 {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 992px) and (max-height: 480px){
+  #login .container {
+    .content-wrapper {
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      .login-box {
+        width: 60%;
+        .login-form {
+          height: auto;
+
+          h1 {
+            font-size: 2rem;
+            padding: 10px 0;
+          }
+
+          .flex-head-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            h1 {
+              margin-right: 20px;
+            }
+          }
+
+        }
+      }
+
+      .overlay {
+        border-radius: 35% 0 0 35%;
+      }
+
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #login .container {
+    .content-wrapper {
+      width: 100%;
+      height: 70%;
+
+      .overlay {
+        border-radius: 35% 0 0 35%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) and (max-height: 567px){
+  #login .container {
+    .content-wrapper {
+      width: 100%;
+      height: 100%;
+      .overlay {
+        border-radius: 35% 0 0 35%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  #login .container {
+    .content-wrapper {
+      width: 80%;
+      padding: 20px;
+      .login-box {
+        width: 100%;
+        height: auto;
+        padding: 20px 0;
+        .login-form {
+          height: auto;
+
+          h1 {
+            font-size: 2rem;
+            padding: 30px 0;
+          }
+
+          .form-input {
+            width: 100%;
+          }
+
+          .form-password {
+            position: relative;
+            svg {
+              position: absolute;
+              top: 16px;
+              right: 16px;
+            }
+          }
+
+
+          .submit-btn {
+            width: 100%;
+          }
+        }
+      }
+
+      .overlay {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 680px) and (min-height: 768px){
+  #login .container {
+    .content-wrapper {
+      width: 80%;
+      height: 60%;
+    }
+  }
+}
+
+
+@media screen and (max-width: 680px) and (max-height: 400px) {
+  #login .container {
+    .content-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      border-radius: 0;
+      .login-box {
+        width: 100%;
+        height: auto;
+        padding: 20px 0;
+        .login-form {
+          height: auto;
+
+          h1 {
+            font-size: 2rem;
+            padding: 30px 0;
+          }
+
+          .flex-head-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            h1 {
+              margin-right: 20px;
+            }
+          }
+
+          .form-input {
+            width: 100%;
+          }
+
+          .form-password {
+
+            svg {
+              right: 80px;
+            }
+          }
+
+          .submit-btn {
+            width: 100%;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+@media screen and (max-width: 567px) {
+  #login .container {
+    .content-wrapper {
+      width: 90%;
+      .login-box {
+        width: 100%;
+        height: auto;
+        padding: 20px 0;
+        .login-form {
+          height: auto;
+
+          h1 {
+            font-size: 2rem;
+            padding: 30px 0;
+          }
+
+          .form-input {
+            width: 100%;
+          }
+
+          .submit-btn {
+            width: 100%;
+          }
+        }
+      }
+
+      .overlay {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #login .container {
+    .content-wrapper {
+      width: 100%;
+    }
+
+    .login-box {
+      padding: 15px;
+
+      .login-form{
+        width: 100%;
+        height: 90%;
+        text-align: center;
+
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        .form-group {
+          padding: 5px;
+
+          .form-input {
+            width: 100% !important;
+          }
+          .submit-btn {
+            width:100%!important;
+            margin: 10px 0!important;
+          }
+        }
+
+        .remember-forgot {
+          a, label {
+            font-size: 0.9rem;
+          }
+
+          a:hover {
+            color: #5c5a9e;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) and (min-height: 567px){
+  #login .container {
+    .content-wrapper {
+      width: 100%;
+      height: 70%;
+    }
+  }
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-5px);
+  }
+}

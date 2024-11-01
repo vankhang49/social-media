@@ -1,0 +1,209 @@
+#post {
+  width: 100%;
+  position: relative;
+
+  .post-card {
+    width: 100%;
+    margin: 5px 0;
+    position: relative;
+    padding: 10px;
+    background-color: rgba(218, 223, 229, 0.87);
+    border-radius: 10px;
+
+    .post-header {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .avatar {
+        width: 10%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+        }
+      }
+      .author-info {
+        width: 75%;
+        height: 100%;
+        position: relative;
+
+        .author {
+          padding: 5px;
+          color: black;
+          font-size: 1rem;
+          font-weight: bold;
+
+          .post-mode {
+            color: #575757;
+            font-size: 0.8rem;
+            font-weight: 500;
+          }
+        }
+        .post-date {
+          color: #575757;
+          font-size: 0.9rem;
+        }
+      }
+      .action {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 15%;
+        button {
+          margin-left: 5px;
+          width: 35px;
+          height: 35px;
+          font-size: 1.3rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: black;
+          border: none;
+          border-radius: 50%;
+          background-color: transparent;
+
+          &:hover {
+            background-color: rgba(69, 69, 69, 0.25);
+          }
+        }
+      }
+    }
+    .post-content {
+      font-size: 1rem;
+      padding: 10px 0;
+    }
+    .listImages {
+      width: 100%;
+      height: 350px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .mainImage {
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+        &.half {
+          width: 50%;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .childImages {
+        width: 50%;
+        height: 100%;
+        position: relative;
+
+        .imgSecond {
+          width: 100%;
+          height: 49%;
+          cursor: pointer;
+          &.half {
+            height: 100%;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .imgThird {
+          width: 100%;
+          height: 49%;
+          cursor: pointer;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .showMore {
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: rgba(13, 13, 13, 0.49);
+          width: 100%;
+          height: 50%;
+          bottom: 0;
+          right: 0;
+          color: white;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .like-comments {
+      width: 100%;
+      height: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(13, 13, 13, 0.13);
+      .totalEmotion {
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 1rem;
+        cursor: pointer;
+        svg {
+          font-size: 1.2rem;
+        }
+      }
+      .comment-share {
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        span {
+          padding: 0 5px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .comment-action {
+      width: 100%;
+      height: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 33.33%;
+        height: 100%;
+        cursor: pointer;
+        border-radius: 5px;
+
+        svg {
+          font-size: 1.2rem;
+        }
+
+        span {
+          padding-left: 5px;
+        }
+
+        &:hover {
+          background-color: rgba(13, 13, 13, 0.13);
+        }
+      }
+    }
+  }
+}

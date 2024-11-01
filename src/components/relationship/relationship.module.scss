@@ -1,0 +1,225 @@
+.relationship {
+  max-width: 300px;
+  min-width: 270px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  .sponsor {
+    width: 100%;
+    height: 35vh;
+    position: relative;
+    padding: 10px;
+    background-color: rgba(218, 223, 229, 0.87);
+    border-radius: 0 0 0 10px  ;
+
+    .sponsorTitle {
+      color: black;
+      font-size: 1.2rem;
+      font-weight: 550;
+    }
+
+    .sponsorCard {
+      width: 100%;
+      height: 100px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 5px 0;
+      .sponsorImg {
+        width: 60%;
+        height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+        }
+      }
+
+      .sponsorInfo {
+        width: 40%;
+        height: 100%;
+        padding: 5px;
+        .sponsorName {
+          font-size: 1rem;
+          font-weight: 550;
+        }
+        .sponsorContent {
+          font-size: 0.9rem;
+        }
+      }
+
+
+
+    }
+  }
+
+  .groupAndFriends {
+    width: 100%;
+    margin-top: 5px;
+    height: 64.3vh;
+    position: relative;
+    padding: 10px;
+    background-color: rgba(218, 223, 229, 0.87);
+    border-radius: 10px 0 0 0;
+
+    .friends {
+      width: 100%;
+      height: 60%;
+      .friendList {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+
+        &::-webkit-color-swatch-wrapper {
+          color: black;
+        }
+
+        &::-webkit-scrollbar{
+          width: 3px;
+          height: 5px;
+        }
+        &::-webkit-scrollbar-thumb{
+          background-color: black;
+        }
+        &::-webkit-scrollbar-track{
+          background-color: #ccc;
+        }
+
+        .friendCard {
+          width: 100%;
+          height: 50px;
+          position: relative;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin: 5px 0;
+          border-radius: 5px;
+          padding: 5px;
+
+          &:hover {
+            background-color: rgba(13, 13, 13, 0.13);
+          }
+
+          .avatarAndStatus {
+            width: 40px;
+            height: 100%;
+            position: relative;
+
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+            }
+
+            .status {
+              width: 9px;
+              height: 9px;
+              border-radius: 50%;
+              background-color: transparent;
+              right: 0;
+              bottom: 0;
+              position: absolute;
+
+              &.on {
+                background-color: green;
+              }
+            }
+          }
+
+          .friendInfo {
+            padding: 5px;
+
+            .friendName {
+              font-size: 0.9rem;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+    .groups {
+      margin-top: 20px;
+      width: 100%;
+      height: 30%;
+      .groupList {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+
+        &::-webkit-color-swatch-wrapper {
+          color: black;
+        }
+
+        &::-webkit-scrollbar{
+          width: 3px;
+          height: 5px;
+        }
+        &::-webkit-scrollbar-thumb{
+          background-color: black;
+        }
+        &::-webkit-scrollbar-track{
+          background-color: #ccc;
+        }
+
+        .groupCard {
+          width: 100%;
+          height: 50px;
+          position: relative;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin: 5px 0;
+          border-radius: 5px;
+          padding: 5px;
+
+          &:hover {
+            background-color: rgba(13, 13, 13, 0.13);
+          }
+
+          .avatarAndStatus {
+            width: 40px;
+            height: 100%;
+            position: relative;
+
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+            }
+
+            .status {
+              width: 9px;
+              height: 9px;
+              border-radius: 50%;
+              background-color: transparent;
+              right: 0;
+              bottom: 0;
+              position: absolute;
+
+              &.on {
+                background-color: green;
+              }
+            }
+          }
+
+          .groupInfo {
+            padding: 5px;
+
+            .groupName {
+              font-size: 0.9rem;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .relationship {
+    display: none;
+  }
+}
