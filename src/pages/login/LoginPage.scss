@@ -8,7 +8,12 @@ a {
   width: 100%;
   height: 100vh;
   box-sizing: border-box;
-  background: linear-gradient(90deg, rgb(224,223,228) 0%, rgb(219,223,234) 35%, rgb(207,216,247) 100%);
+  background: linear-gradient(
+                  60deg,
+                  #24d8df 0%,
+                  #e3d9f3 30%,
+                  #e6b0e6 70%
+  );
 
   .container {
     width: 100%;
