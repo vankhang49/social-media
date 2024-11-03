@@ -12,7 +12,7 @@ export function MainHeader() {
 
     const handleLogout = () => {
         localStorage.removeItem("isAuthenticated");
-        router.push("/login");
+        router.push("/login").catch(console.error);
     }
 
     return(

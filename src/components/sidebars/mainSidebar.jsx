@@ -15,7 +15,7 @@ export default function Sidebar(props) {
 
     const handleLogout = () => {
        localStorage.removeItem("isAuthenticated");
-       router.push("/login");
+       router.push("/login").catch(console.error);
     }
     return (
         <aside id="mainSidebar" className={styles.mainSidebar}>
