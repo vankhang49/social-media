@@ -167,6 +167,37 @@
   box-sizing: inherit;
 }
 
+
+@media screen and (max-width: 992px) {
+  .introduction {
+
+    .slogan {
+      max-width: 768px;
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .introduction {
+
+    .slogan {
+      max-width: 450px;
+      font-size: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .introduction {
+
+    .slogan {
+      max-width: 375px;
+      font-size: 1rem;
+    }
+  }
+}
+
 /* devanagari */
 @font-face {
   font-family: "Poppins";
