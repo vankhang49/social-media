@@ -2,6 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --color-primary: #6C9BCF;
+  --color-danger: #FF0060;
+  --color-success: #1B9C85;
+  --color-warning: #F7D060;
+  --color-white: #fff;
+  --color-quite-white: #575757;
+  --color-info-dark: #7d8da1;
+  --color-dark: #363949;
+  --color-light: rgba(132, 139, 200, 0.18);
+  --color-dark-variant: #677483;
+  --color-gray: rgba(198, 198, 198, 0.87);
+
+  --color-background: rgba(218, 223, 229, 0.87);
+  --color-hover: #c3d2e3;
+
+  --card-border-radius: 2rem;
+  --border-radius-1: 0.4rem;
+  --border-radius-2: 1.2rem;
+
+  --card-padding: 1.8rem;
+  --padding-1: 1.2rem;
+
+  --box-shadow: 0 2rem 3rem var(--color-light);
+
+  --bg-active-link: #8cceef;
+}
+.dark-mode-variables {
+  --color-background: rgba(24, 26, 30, 0.87);
+  --color-white: #202528;
+  --color-dark: #edeffd;
+  --color-primary: #000;
+  --color-quite-white: #c3c3c3;
+  --color-gray: rgba(50, 49, 49, 0.92);
+  --color-dark-variant: #a3bdcc;
+  --color-light: rgba(232, 232, 232, 0.94);
+  --box-shadow: 0 2rem 3rem var(--color-light);
+  --bg-active-link: #e7e8ea;
+}
+
+
+
 /*-------------- Reset CSS----------- */
 *{
   margin: 0;
@@ -9,12 +51,25 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
+  outline: 0;
+  border: 0;
 }
 
-body {
+html{
+  font-size: 14px;
+}
+
+body{
   font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
+  height: 100vh;
+  font-size: 0.88rem;
+  user-select: none;
+  overflow-x: hidden;
+  color: var(--color-dark);
+  background-color: var(--color-background);
 }
 
 body::-webkit-scrollbar{
@@ -26,4 +81,34 @@ body::-webkit-scrollbar-thumb{
 }
 body::-webkit-scrollbar-track{
   background-color: #ccc;
+}
+
+h1{
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--color-dark);
+}
+
+h2{
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: var(--color-dark);
+}
+
+h3{
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--color-dark);
+}
+
+small{
+  font-size: 0.76rem;
+}
+
+p{
+  color: var(--color-dark);
+}
+
+b{
+  color: var(--color-dark);
 }

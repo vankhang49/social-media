@@ -7,7 +7,7 @@
     margin: 5px 0;
     position: relative;
     padding: 10px;
-    background-color: rgba(218, 223, 229, 0.87);
+    background-color: var(--color-background);;
     border-radius: 10px;
 
     .post-header {
@@ -37,18 +37,18 @@
 
         .author {
           padding: 5px;
-          color: black;
+          color: var(--color-dark);
           font-size: 1rem;
           font-weight: bold;
 
           .post-mode {
-            color: #575757;
+            color: var(--color-dark);
             font-size: 0.8rem;
             font-weight: 500;
           }
         }
         .post-date {
-          color: #575757;
+          color: var(--color-quite-white);
           font-size: 0.9rem;
         }
       }
@@ -65,7 +65,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          color: black;
+          color: var(--color-dark);
           border: none;
           border-radius: 50%;
           background-color: transparent;
@@ -162,6 +162,7 @@
         cursor: pointer;
         svg {
           font-size: 1.2rem;
+          color: var(--color-dark);
         }
       }
       .comment-share {

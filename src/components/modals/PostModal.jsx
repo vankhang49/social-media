@@ -119,8 +119,8 @@ export const PostModal = ({post, isOpen, onClose}) => {
 
                         <div className={styles.likeComments}>
                         <span className={styles.totalEmotion}>
-                                {postElement.likes > 0 && <AiOutlineLike fill={'blue'}/>}
-                            {postElement.dislikes > 0 && <AiOutlineDislike fill={'blue'} style={{marginRight: 5}}/>}
+                                {postElement.likes > 0 && <AiOutlineLike />}
+                            {postElement.dislikes > 0 && <AiOutlineDislike style={{marginRight: 5}}/>}
                             {(postElement.likes || 0) + (postElement.dislikes || 0)}
                         </span>
                             <div className={styles.commentShare}>

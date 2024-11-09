@@ -11,11 +11,11 @@
     height: 35vh;
     position: relative;
     padding: 10px;
-    background-color: rgba(218, 223, 229, 0.87);
+    background-color: var(--color-background);
     border-radius: 0 0 0 10px  ;
 
     .sponsorTitle {
-      color: black;
+      color: var(--color-dark);
       font-size: 1.2rem;
       font-weight: 550;
     }
@@ -61,7 +61,7 @@
     height: 64.3vh;
     position: relative;
     padding: 10px;
-    background-color: rgba(218, 223, 229, 0.87);
+    background-color: var(--color-background);
     border-radius: 10px 0 0 0;
 
     .friends {

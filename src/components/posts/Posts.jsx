@@ -91,8 +91,8 @@ export default function Posts() {
 
                     <div className="like-comments">
                         <span className="totalEmotion">
-                                {post.likes > 0 && <AiOutlineLike fill={'blue'}/>}
-                                {post.dislikes > 0 && <AiOutlineDislike fill={'blue'} style={{marginRight: 5}}/>}
+                                {post.likes > 0 && <AiOutlineLike/>}
+                                {post.dislikes > 0 && <AiOutlineDislike style={{marginRight: 5}}/>}
                                 {(post.likes||0) + (post.dislikes||0)}
                         </span>
                         <div className="comment-share">

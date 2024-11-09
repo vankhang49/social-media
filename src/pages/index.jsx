@@ -10,6 +10,7 @@ import {MainHeader} from "@/components/header/MainHeader";
 function Index() {
     const [isAuth, setIsAuth] = useState(false);
     const router = useRouter();
+    const [isShowSidebar, setIsShowSidebar] = useState(false);
 
     useEffect(() => {
         const authenticated = localStorage.getItem("isAuthenticated") === "authenticated";
@@ -18,12 +19,20 @@ function Index() {
         if (!authenticated) {
             router.push('/intro').catch(console.error);
         }
-    },[isAuth])
+    }, [])
+
+    if (!isAuth) {
+        return null;
+    }
+
+    const handleShowSidebar = () => {
+        setIsShowSidebar(!isShowSidebar);
+    }
 
     return (
         <div id="home-page" className="home-page">
-            <MainHeader />
-            <MainSidebar />
+            <MainHeader showSidebar={handleShowSidebar}/>
+            <MainSidebar isOpen={isShowSidebar}/>
             <div className='container'>
                 <PostArticles/>
                 <Posts/>
