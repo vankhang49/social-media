@@ -1,0 +1,46 @@
+.personalIntroduction {
+  width: 100%;
+  max-height: 500px;
+  background-color: var(--color-background);
+  position: relative;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 10px;
+
+  h2 {
+    padding: 5px 0;
+    color: var(--color-dark);
+  }
+
+  p {
+    padding: 5px 0;
+    font-size: 1rem;
+    color: var(--color-dark);
+
+    svg {
+      font-size: 1.2rem;
+    }
+  }
+
+  button {
+    width: 99%;
+    height: 35px;
+    margin: 5px;
+    font-size: 1rem;
+    font-weight: 550;
+    color: var(--color-dark);
+    background-color: var(--color-background-second);
+    border: none;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: var(--color-background-second-hover);
+    }
+  }
+}
+
+@media screen and (max-width: 768px){
+  .personalIntroduction {
+    border-radius: 0;
+  }
+}

@@ -5,7 +5,8 @@
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-background);
-  border-top: 2px solid var(--color-light); ;
+  border-top: 2px solid var(--color-light);
+  border-radius: 0 0 10px 10px;
 
   .listFunction {
     display: flex;
@@ -35,6 +36,38 @@
 
       &:hover {
         background-color: rgba(13, 13, 13, 0.13);
+      }
+    }
+  }
+  .menuSetting {
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      width: 50px;
+      height: 50px;
+      border: none;
+      border-radius: 10px;
+      background-color: transparent;
+      color: var(--color-dark);
+      font-size: 1.4rem;
+
+      &:hover {
+        background-color: rgba(13, 13, 13, 0.13);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .personalNavbar {
+    border-radius: 0;
+    .listFunction {
+      .friends, .images, .videos, .checkin {
+        display: none;
       }
     }
   }

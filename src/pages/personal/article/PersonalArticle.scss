@@ -1,0 +1,26 @@
+.personalPost {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  flex-wrap: wrap;
+  .boxLeft {
+    width: 40%;
+    padding-right: 5px;
+  }
+  .boxRight {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .personalPost {
+    .boxLeft {
+      width: 100%;
+      padding-right: 0;
+    }
+    .boxRight {
+      width: 100%;
+    }
+  }
+}

@@ -17,8 +17,8 @@
   --color-gray: rgba(198, 198, 198, 0.87);
 
   --color-background: rgba(218, 223, 229, 0.87);
-  --color-background-second: rgba(24, 26, 30, 0.87);
-  --color-background-second-hover: rgba(47, 51, 58, 0.87);
+  --color-background-second: #e2e5e9;
+  --color-background-second-hover: #c8c9ca;
   --color-hover: #c3d2e3;
 
   --card-border-radius: 2rem;
@@ -34,8 +34,8 @@
 }
 .dark-mode-variables {
   --color-background: rgba(24, 26, 30, 0.87);
-  --color-background-second: rgba(216, 241, 255, 0.87);
-  --color-background-second-hover: rgba(177, 207, 225, 0.87);
+  --color-background-second: rgba(255, 255, 255, .1);
+  --color-background-second-hover: rgba(255, 255, 255, 0.35);
   --color-white: #202528;
   --color-dark: #edeffd;
   --color-primary: #000;

@@ -116,6 +116,7 @@
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
+      flex-wrap: wrap;
       button {
         height: 40px;
         border-radius: 5px;
@@ -149,10 +150,55 @@
 
         &.editInfo {
           background-color: var(--color-background-second);
+          color: var(--color-dark);
 
           &:hover {
             background-color: var(--color-background-second-hover);
           }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .personalHeader {
+    height: 500px;
+
+    .coverImage {
+      height: 35%;
+    }
+
+    .basicInfo {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 65%;
+      .avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        img {
+          top: -100px;
+        }
+      }
+
+      .info {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .editProfile {
+        width: 100%;
+        justify-content: center;
+        margin: 10px 0;
+        padding: 0 5px;
+        button {
+          width: 99%;
         }
       }
     }
