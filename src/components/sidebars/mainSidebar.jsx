@@ -36,12 +36,11 @@ export default function Sidebar({isOpen}) {
     return (
         <aside id="mainSidebar" className={`${styles.mainSidebar} ${isShowSidebar && styles.showSidebar}`}>
             <div className={styles.personalBox}>
-                <div className={styles.avatar}>
+                <Link href={'/personal'} className={styles.avatar}>
                     <Image src={avatar} alt="avatar"/>
-                </div>
+                </Link>
                 <div className={styles.info}>
                     <h3>Văn Khang</h3>
-                    <button>Contact Me</button>
                 </div>
             </div>
             <div className={styles.menuTask}>

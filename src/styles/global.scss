@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root{
+  --color-secondary: #0866ff;
   --color-primary: #6C9BCF;
   --color-danger: #FF0060;
   --color-success: #1B9C85;
@@ -16,6 +17,8 @@
   --color-gray: rgba(198, 198, 198, 0.87);
 
   --color-background: rgba(218, 223, 229, 0.87);
+  --color-background-second: rgba(24, 26, 30, 0.87);
+  --color-background-second-hover: rgba(47, 51, 58, 0.87);
   --color-hover: #c3d2e3;
 
   --card-border-radius: 2rem;
@@ -31,6 +34,8 @@
 }
 .dark-mode-variables {
   --color-background: rgba(24, 26, 30, 0.87);
+  --color-background-second: rgba(216, 241, 255, 0.87);
+  --color-background-second-hover: rgba(177, 207, 225, 0.87);
   --color-white: #202528;
   --color-dark: #edeffd;
   --color-primary: #000;
@@ -40,6 +45,7 @@
   --color-light: rgba(232, 232, 232, 0.94);
   --box-shadow: 0 2rem 3rem var(--color-light);
   --bg-active-link: #e7e8ea;
+  --color-hover: rgba(97, 97, 97, 0.66);
 }
 
 

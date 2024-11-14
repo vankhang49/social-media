@@ -1,0 +1,23 @@
+#personalLayout {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: url("../asset/images/bg.jpg") no-repeat center center fixed;
+
+  .personal-container {
+    width: 70%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 992px){
+  #personalLayout {
+
+    .personal-container {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
