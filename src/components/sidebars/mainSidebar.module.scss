@@ -185,9 +185,58 @@
 @media screen and (max-width: 768px) {
   .mainSidebar {
     display: none;
-
+    max-width: 300px;
+    min-width: 250px;
+    height: auto;
+    padding: 10px 0;
+    top: 50px;
+    right: 0;
+    left: auto;
     &.showSidebar {
       display: block;
+    }
+
+    .personalBox {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: flex-start;
+      border-bottom: 1px solid var(--color-light) ;
+
+      .avatar {
+        width: 40px;
+        height: 40px;
+        margin: 0 5px;
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 50%;
+        }
+      }
+      .info {
+        width: auto;
+        height: 40px;
+      }
+    }
+
+    .menuTask {
+      height: auto;
+
+      ul {
+        li.settings {
+          .settingMenu {
+            left: -100%;
+            height: auto;
+            border-radius: 15px 0 0 15px;
+            border-left: none;
+            border-right: 2px solid gray;
+          }
+        }
+      }
+      .logout {
+        border-top: 1px solid var(--color-light) ;
+      }
     }
   }
 }

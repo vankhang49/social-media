@@ -1,0 +1,128 @@
+.searching {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .search {
+    background: var(--color-background);
+    width: auto;
+    height: 40px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(#414856, .05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .searchInput {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      font: 400 16px 'Varela Round', sans-serif;
+      color: var(--color-dark);
+      border: 0;
+      box-sizing: border-box;
+      outline: none;
+      padding: 0 0 0 40px;
+      transition: width .6s ease;
+      z-index: 10;
+      opacity: 0;
+      cursor: pointer;
+      background: none;
+      &.focus {
+        z-index: 2;
+        opacity: 1;
+        width: 350px;
+        cursor: initial;
+        ~ .symbol {
+          &::before {
+            width: 0%;
+          }
+          &:after {
+            clip-path: inset(0% 0% 0% 100%);
+            transition: clip-path .04s linear .105s;
+          }
+          .cloud {
+            top: -30px;
+            left: -30px;
+            transform: translate(0, 0);
+            transition: all .6s ease;
+            color: var(--color-dark);
+          }
+          .lens {
+            top: 8px;
+            left: 8px;
+            transform: translate(0, 0);
+            fill: #4F29F0;
+            transition: top .5s ease .1s, left .5s ease .1s, fill .3s ease;
+            background-color: transparent;
+            color: var(--color-dark);
+          }
+        }
+      }
+    }
+    .symbol {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:before {
+        content:"";
+        position: absolute;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: #4F29F0;
+        z-index: -1;
+        transition: width .6s ease;
+      }
+      &:after {
+        content:"";
+        position: absolute;
+        top: 21px;
+        left: 21px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #4F29F0;
+        z-index: 1;
+        clip-path: inset(0% 0% 0% 0%);
+        transition: clip-path .04s linear .225s;
+      }
+      .cloud,
+      .lens {
+        position: absolute;
+        stroke: none;
+        top: 50%;
+        left: 50%;
+        font-size: 1.7rem;
+        color: #fff;
+      }
+      .cloud {
+        width: 35px;
+        height: 32px;
+        transform: translate(-50%, -60%);
+        transition: all .6s ease;
+      }
+      .lens {
+        fill: #fff;
+        width: 1.7rem;
+        height: 1.7rem;
+        z-index: 2;
+        top: 10px;
+        left: 10px;
+        background: #4F29F0;
+        border-radius: 50%;
+        transition: top .3s ease, left .3s ease, fill .2s ease .2s;
+      }
+    }
+  }
+}
+

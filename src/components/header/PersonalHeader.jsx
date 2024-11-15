@@ -5,6 +5,8 @@ import Image from "next/image";
 import {RiCameraSwitchLine} from "react-icons/ri";
 import {FaPlus} from "react-icons/fa";
 import {MdEdit} from "react-icons/md";
+import {posts} from "@/data";
+import {usePictures} from "@/core/contexts/ModalPicturesContext";
 
 const listFriends = [
     {
@@ -34,16 +36,27 @@ const listFriends = [
     }
 ]
 export function PersonalHeader() {
+    const {
+        changePictures,
+        changeIndex,
+        toggleIsOpenModal,
+    } = usePictures();
+
+    const handleOpenPictureModal = (listImages) => {
+        changePictures(listImages);
+        changeIndex(0);
+        toggleIsOpenModal(true);
+    }
 
     return (
         <div className={styles.personalHeader}>
             <div className={styles.coverImage}>
-                <Image src={coverImg} alt={'coverImage'}/>
+                <Image src={coverImg} alt={'coverImage'} onClick={()=> handleOpenPictureModal([coverImg])}/>
                 <button className={styles.changeCoverImg} type={'button'}><RiCameraSwitchLine /></button>
             </div>
             <div className={styles.basicInfo}>
                 <div className={styles.avatar}>
-                    <Image src={avatar} alt={avatar}/>
+                    <Image src={avatar} alt={avatar} onClick={()=> handleOpenPictureModal([avatar])}/>
                     <button className={styles.changeAvatar} type={'button'}><RiCameraSwitchLine/></button>
                 </div>
                 <div className={styles.info}>
@@ -52,7 +65,8 @@ export function PersonalHeader() {
                     <div className={styles.friendList}>
                         {
                             listFriends && listFriends.map(friend => (
-                                <Image src={friend.avatar} alt={friend.friendName} key={friend.friendId}/>
+                                <Image src={friend.avatar} alt={friend.friendName}
+                                       key={friend.friendId}/>
                             ))
                         }
                     </div>

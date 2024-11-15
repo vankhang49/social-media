@@ -6,6 +6,7 @@ import {PostArticles} from "@/components/posts/PostArticles";
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import {MainHeader} from "@/components/header/MainHeader";
+import {Searching} from "@/components/searching/Searching";
 
 function Index() {
     const [isAuth, setIsAuth] = useState(false);
@@ -34,6 +35,7 @@ function Index() {
             <MainHeader showSidebar={handleShowSidebar}/>
             <MainSidebar isOpen={isShowSidebar}/>
             <div className='container'>
+                <Searching/>
                 <PostArticles/>
                 <Posts/>
             </div>

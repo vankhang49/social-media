@@ -6,9 +6,12 @@ import styles from "@/components/sidebars/mainSidebar.module.scss";
 import {CiLogout} from "react-icons/ci";
 import {useRouter} from "next/router";
 import {useState} from "react";
+import avatar from "../../asset/images/my-avatar.png";
+import {MdArrowDropDown} from "react-icons/md";
 
 export function MainHeader({showSidebar}) {
     const router = useRouter();
+    const authenticated = localStorage.getItem("isAuthenticated") === "authenticated";
 
     const handleLogout = () => {
         localStorage.removeItem("isAuthenticated");
@@ -22,14 +25,21 @@ export function MainHeader({showSidebar}) {
     return(
         <div id="main-header">
             <div className="menu-button">
-                <button type={"button"} onClick={handleShowSidebar}><FiMenu/></button>
-            </div>
-            <div className="logo">
                 <Image src={logo} alt={"logo"}></Image>
             </div>
-            <div className={'logout'} onClick={handleLogout}>
-                <a><CiLogout/>Log out</a>
-            </div>
+            {authenticated ?
+                <div className={'menuAction'}>
+                    <div className="avatar" onClick={handleShowSidebar}>
+                        <Image src={avatar} alt={'avatar'}/>
+                        <MdArrowDropDown />
+                    </div>
+                </div>
+                :
+                <div className={'logout'} onClick={handleLogout}>
+                    <a><CiLogout/>Log out</a>
+                </div>
+            }
+
         </div>
     );
 }
