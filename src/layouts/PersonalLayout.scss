@@ -11,13 +11,19 @@
     height: auto;
   }
 }
-
-@media screen and (max-width: 992px){
+@media screen and (max-width: 1200px){
   #personalLayout {
 
     .personal-container {
+      width: 80%;
+    }
+  }
+}
+
+@media screen and (max-width: 992px){
+  #personalLayout {
+    .personal-container {
       width: 100%;
-      height: 100%;
     }
   }
 }

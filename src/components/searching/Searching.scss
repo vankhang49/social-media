@@ -12,11 +12,15 @@
     height: 40px;
     position: relative;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 50%;
     box-shadow: 0 10px 30px rgba(#414856, .05);
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &.focus {
+      border-radius: 10px;
+    }
     .searchInput {
       position: relative;
       width: 40px;
@@ -37,6 +41,7 @@
         opacity: 1;
         width: 350px;
         cursor: initial;
+
         ~ .symbol {
           &::before {
             width: 0%;
@@ -121,6 +126,18 @@
         background: #4F29F0;
         border-radius: 50%;
         transition: top .3s ease, left .3s ease, fill .2s ease .2s;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px){
+  .searching {
+    .search {
+      .searchInput {
+        &.focus {
+          width: 200px;
+        }
       }
     }
   }

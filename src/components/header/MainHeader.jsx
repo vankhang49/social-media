@@ -8,6 +8,7 @@ import {useRouter} from "next/router";
 import {useState} from "react";
 import avatar from "../../asset/images/my-avatar.png";
 import {MdArrowDropDown} from "react-icons/md";
+import {Searching} from "@/components/searching/Searching";
 
 export function MainHeader({showSidebar}) {
     const router = useRouter();
@@ -25,7 +26,8 @@ export function MainHeader({showSidebar}) {
     return(
         <div id="main-header">
             <div className="menu-button">
-                <Image src={logo} alt={"logo"}></Image>
+                <Image src={logo} alt={"logo"} onClick={()=>router.push('/')}></Image>
+                <Searching className={'headUse'}/>
             </div>
             {authenticated ?
                 <div className={'menuAction'}>

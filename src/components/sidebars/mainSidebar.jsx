@@ -12,7 +12,7 @@ import {CiLogout} from "react-icons/ci";
 import {IoIosArrowForward} from "react-icons/io";
 import {useEffect, useState} from "react";
 
-export default function Sidebar({isOpen}) {
+export default function Sidebar({isOpen, className}) {
     const router = useRouter();
     const [showSettings, setShowSettings] = useState(false);
     const [isShowSidebar, setIsShowSidebar] = useState(isOpen);
@@ -34,7 +34,8 @@ export default function Sidebar({isOpen}) {
     }
 
     return (
-        <aside id="mainSidebar" className={`${styles.mainSidebar} ${isShowSidebar && styles.showSidebar}`}>
+        <aside id="mainSidebar" className={`${styles.mainSidebar} ${isShowSidebar && styles.showSidebar}
+        ${className==='private'? styles.private : ''}`}>
             <div className={styles.personalBox}>
                 <Link href={'/personal/article'} className={styles.avatar}>
                     <Image src={avatar} alt="avatar"/>
@@ -46,13 +47,13 @@ export default function Sidebar({isOpen}) {
             <div className={styles.menuTask}>
                 <h4>MENUS</h4>
                 <ul>
-                    <li className={styles.active}><Link href={'#'}><IoHomeOutline /> Newsfeed</Link></li>
-                    <li><Link href={'/'}><FiSend /> Messages</Link></li>
-                    <li><Link href={'/about'}><FaRegHeart /> Notifications</Link></li>
-                    <li><Link href={'/blog'}><SlLocationPin /> Locations</Link></li>
-                    <li><Link href={'/login'}><FiEdit2 /> Privecy</Link></li>
+                    <li className={styles.active}><Link href={'#'}><IoHomeOutline /> <span>Newsfeed</span></Link></li>
+                    <li><Link href={'/'}><FiSend /> <span>Messages</span></Link></li>
+                    <li><Link href={'/about'}><FaRegHeart /> <span>Notifications</span></Link></li>
+                    <li><Link href={'/blog'}><SlLocationPin /> <span>Locations</span></Link></li>
+                    <li><Link href={'/login'}><FiEdit2 /> <span>Privecy</span></Link></li>
                     <li className={styles.settings} onClick={handleShowSettings}>
-                        <a><LuSettings/> Settings</a>
+                        <a><LuSettings/> <span>Settings</span></a>
                         <ul className={`${styles.settingMenu} ${showSettings === true && styles.activeSetting}`}>
                             <li>Settings & privacy <IoIosArrowForward className={styles.arrowAction}/></li>
                             <li onClick={handleChangeDarkMode}>
@@ -62,7 +63,7 @@ export default function Sidebar({isOpen}) {
                     </li>
                 </ul>
                 <div className={styles.logout} onClick={handleLogout}>
-                    <a><CiLogout />Log out</a>
+                    <a><CiLogout /><span>Log out</span></a>
                 </div>
             </div>
         </aside>

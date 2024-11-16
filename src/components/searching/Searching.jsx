@@ -1,9 +1,9 @@
-import styles from "./Searching.module.scss";
+import "./Searching.scss";
 import {CiSearch} from "react-icons/ci";
 import {useEffect, useRef, useState} from "react";
 import {FaCloud} from "react-icons/fa";
 
-export function Searching() {
+export function Searching({className}) {
     const [isClicked, setIsClicked] = useState(false);
     const searchingRef = useRef(null);
 
@@ -30,15 +30,16 @@ export function Searching() {
     };
 
     return (
-        <div className={styles.searching} onClick={handleClick} ref={searchingRef}>
-            <form className={styles.search}>
+        <div id={'searching'} className={`searching ${className || ""}`}
+             onClick={handleClick} ref={searchingRef}>
+            <form className={`search ${isClicked ? 'focus' : ""}`}>
                 <input type="text" placeholder="Tìm kiếm ..."
-                       className={`${styles.searchInput} ${isClicked ? styles.focus : ""}`}/>
-                <div className={styles.symbol}>
-                    <svg className={styles.cloud}>
+                       className={`searchInput ${isClicked ? 'focus' : ""}`}/>
+                <div className='symbol'>
+                    <svg className='cloud'>
                         <use xlinkHref="#cloud"/>
                     </svg>
-                    <svg className={styles.lens}>
+                    <svg className='lens'>
                         <use xlinkHref="#lens"/>
                     </svg>
                 </div>

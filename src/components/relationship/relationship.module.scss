@@ -220,7 +220,37 @@
 
 @media screen and (max-width: 1200px) {
   .relationship {
-    padding-top: 50px;
+    max-width: 100px;
+    min-width: 70px;
+    height: auto;
+    top: 15%;
+
+    .sponsor {
+      display: none;
+    }
+
+    .groupAndFriends {
+      border-radius: 25px;
+
+      .friends {
+        .friendList {
+          .friendCard {
+            .friendInfo {
+              display: none;
+            }
+          }
+        }
+      }
+      .groups {
+        .groupList {
+          .groupCard {
+            .groupInfo {
+              display: none;
+            }
+          }
+        }
+      }
+    }
   }
 }
 

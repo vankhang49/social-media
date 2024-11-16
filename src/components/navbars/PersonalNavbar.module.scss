@@ -62,11 +62,22 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .personalNavbar {
+    border-radius: 0;
+    .listFunction {
+      .images, .videos, .checkin {
+        display: none;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 480px) {
   .personalNavbar {
     border-radius: 0;
     .listFunction {
-      .friends, .images, .videos, .checkin {
+      .friends {
         display: none;
       }
     }
