@@ -13,7 +13,7 @@ function Index() {
     const [isShowSidebar, setIsShowSidebar] = useState(false);
 
     useEffect(() => {
-        const authenticated = (localStorage.getItem("isAuthenticated") === "authenticated")||false;
+        const authenticated = localStorage.getItem("isAuthenticated") === "authenticated";
         setIsAuth(authenticated);
 
         if (!authenticated) {

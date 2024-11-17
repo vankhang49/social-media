@@ -47,11 +47,11 @@ export default function Sidebar({isOpen, className}) {
             <div className={styles.menuTask}>
                 <h4>MENUS</h4>
                 <ul>
-                    <li className={styles.active}><Link href={'#'}><IoHomeOutline /> <span>Newsfeed</span></Link></li>
-                    <li><Link href={'/'}><FiSend /> <span>Messages</span></Link></li>
-                    <li><Link href={'/about'}><FaRegHeart /> <span>Notifications</span></Link></li>
-                    <li><Link href={'/blog'}><SlLocationPin /> <span>Locations</span></Link></li>
-                    <li><Link href={'/login'}><FiEdit2 /> <span>Privecy</span></Link></li>
+                    <li className={styles.active}><Link href={'/'}><IoHomeOutline /> <span>Newsfeed</span></Link></li>
+                    <li><Link href={'#'}><FiSend /> <span>Messages</span></Link></li>
+                    <li><Link href={'#'}><FaRegHeart /> <span>Notifications</span></Link></li>
+                    <li><Link href={'#'}><SlLocationPin /> <span>Locations</span></Link></li>
+                    <li><Link href={'#'}><FiEdit2 /> <span>Privecy</span></Link></li>
                     <li className={styles.settings} onClick={handleShowSettings}>
                         <a><LuSettings/> <span>Settings</span></a>
                         <ul className={`${styles.settingMenu} ${showSettings === true && styles.activeSetting}`}>

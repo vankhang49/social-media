@@ -5,14 +5,19 @@ import {FiMenu} from "react-icons/fi";
 import styles from "@/components/sidebars/mainSidebar.module.scss";
 import {CiLogout} from "react-icons/ci";
 import {useRouter} from "next/router";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import avatar from "../../asset/images/my-avatar.png";
 import {MdArrowDropDown} from "react-icons/md";
 import {Searching} from "@/components/searching/Searching";
 
 export function MainHeader({showSidebar}) {
     const router = useRouter();
-    const authenticated = localStorage.getItem("isAuthenticated") === "authenticated";
+    const [authenticated, setAuthenticated] = useState(false);
+
+    useEffect(() => {
+        const auth = localStorage.getItem("isAuthenticated") === "authenticated";
+        setAuthenticated(auth);
+    }, [])
 
     const handleLogout = () => {
         localStorage.removeItem("isAuthenticated");
