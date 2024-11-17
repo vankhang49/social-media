@@ -13,11 +13,13 @@ function Index() {
     const [isShowSidebar, setIsShowSidebar] = useState(false);
 
     useEffect(() => {
-        const authenticated = localStorage?.getItem("isAuthenticated") === "authenticated";
-        setIsAuth(authenticated);
+        if (typeof window !== "undefined") { // Kiểm tra môi trường client
+            const authenticated = localStorage.getItem("isAuthenticated") === "authenticated";
+            setIsAuth(authenticated);
 
-        if (!authenticated) {
-            router.push('/intro').catch(console.error);
+            if (!authenticated) {
+                router.push('/intro').catch(console.error);
+            }
         }
     }, [])
 
