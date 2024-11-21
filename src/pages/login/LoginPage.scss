@@ -21,6 +21,11 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    min-height: 480px;
 
     .content-wrapper {
       width: 800px;
@@ -56,14 +61,28 @@ a {
       }
 
       .login-box {
+        left: 0;
         width: 50%;
+        z-index: 2;
+      }
+
+      .register-box {
+        left: 0;
+        width: 50%;
+        opacity: 0;
+        z-index: 1;
+      }
+
+      .form-container {
+        position: absolute;
+        top: 0;
         height: 100%;
-        position: relative;
+        transition: all 0.6s ease-in-out;
         display: flex;
         justify-content: center;
         align-items: center;
 
-        .login-form{
+        .login-form, .register-form{
           width: 100%;
           height: 90%;
           text-align: center;
@@ -74,7 +93,7 @@ a {
             color: #474747;
           }
 
-          .form-password {
+          .form-password, .form-confirm-password {
             position: relative;
             height: 60px;
             svg {
@@ -155,6 +174,22 @@ a {
             }
           }
         }
+
+        .btn-move {
+          font-size: 1.1rem;
+          background-color: transparent;
+          color: #474747;
+          cursor: pointer;
+          display: none;
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+
+          &:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease-in-out;
+          }
+        }
       }
 
       .overlay {
@@ -185,6 +220,112 @@ a {
           }
         }
       }
+
+      .toggle-container{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        transition: all 0.6s ease-in-out;
+        border-radius: 150px 25px 25px 100px;
+        z-index: 1000;
+        .toggle{
+          height: 100%;
+          background: #20283B;
+          color: #fff;
+          position: relative;
+          left: -100%;
+          width: 200%;
+          transform: translateX(0);
+          transition: all 0.6s ease-in-out;
+
+          .toggle-panel{
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 30px;
+            text-align: center;
+            top: 0;
+            transform: translateX(0);
+            transition: all 0.6s ease-in-out;
+
+            h1, p {
+              color: var(--color-white);
+            }
+
+            .button-move {
+              background: linear-gradient(
+                              60deg,
+                              #24d8df 0%,
+                              #e3d9f3 30%,
+                              #e6b0e6 70%
+              );
+              color: #474747;
+              width: 125px;
+              height: 50px;
+              border-radius: 10px;
+              margin: 20px 0;
+              font-size: 1.5rem;
+              font-weight: 550;
+            }
+
+            &.toggle-left{
+              transform: translateX(-100%);
+            }
+
+            &.toggle-right{
+              right: 0;
+              transform: translateX(0);
+
+              img {
+                width: 150px;
+                height: 150px;
+                border-radius: 15px;
+              }
+            }
+          }
+        }
+      }
+
+    }
+
+    &.active {
+
+      .content-wrapper {
+        .login-box {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        .register-box {
+          transform: translateX(100%);
+          opacity: 1;
+          z-index: 5;
+          animation: move 0.6s;
+        }
+        .toggle-container{
+          transform: translateX(-100%);
+          border-radius: 25px 150px 100px 25px;
+          .toggle{
+            transform: translateX(0);
+
+            .toggle-left{
+              transform: translateX(100%);
+            }
+
+            .toggle-right{
+              transform: translateX(-200%);
+              opacity: 0;
+            }
+          }
+        }
+      }
+
     }
   }
 }
@@ -194,9 +335,9 @@ a {
       width: 100%;
       height: 100%;
       border-radius: 0;
-      .login-box {
+      .form-container {
         width: 60%;
-        .login-form {
+        .login-form, .register-form {
           height: auto;
 
           h1 {
@@ -216,7 +357,7 @@ a {
         }
       }
 
-      .overlay {
+      .toggle-container {
         border-radius: 35% 0 0 35%;
       }
 
@@ -230,7 +371,7 @@ a {
       width: 100%;
       height: 70%;
 
-      .overlay {
+      .toggle-container {
         border-radius: 35% 0 0 35%;
       }
     }
@@ -242,7 +383,7 @@ a {
     .content-wrapper {
       width: 100%;
       height: 100%;
-      .overlay {
+      .toggle-container {
         border-radius: 35% 0 0 35%;
       }
     }
@@ -254,11 +395,11 @@ a {
     .content-wrapper {
       width: 80%;
       padding: 20px;
-      .login-box {
+      .form-container {
         width: 100%;
-        height: auto;
+        //height: auto;
         padding: 20px 0;
-        .login-form {
+        .login-form, .register-form {
           height: auto;
 
           h1 {
@@ -284,9 +425,13 @@ a {
             width: 100%;
           }
         }
+
+        .btn-move {
+          display: flex;
+        }
       }
 
-      .overlay {
+      .toggle-container {
         display: none;
       }
     }
@@ -310,11 +455,11 @@ a {
       height: 100%;
       padding: 20px;
       border-radius: 0;
-      .login-box {
+      .form-container {
         width: 100%;
-        height: auto;
+        //height: auto;
         padding: 20px 0;
-        .login-form {
+        .login-form, .register-form {
           height: auto;
 
           h1 {
@@ -356,11 +501,13 @@ a {
   #login .container {
     .content-wrapper {
       width: 90%;
-      .login-box {
+      border-radius: 0;
+      .form-container {
         width: 100%;
-        height: auto;
+        //height: auto;
         padding: 20px 0;
-        .login-form {
+
+        .login-form, .register-form {
           height: auto;
 
           h1 {
@@ -378,8 +525,16 @@ a {
         }
       }
 
-      .overlay {
+      .toggle-container {
         display: none;
+      }
+    }
+
+    &.active {
+      .content-wrapper {
+        .register-box {
+          transform: translateX(0);
+        }
       }
     }
   }
@@ -391,10 +546,10 @@ a {
       width: 100%;
     }
 
-    .login-box {
+    .form-container {
       padding: 15px;
 
-      .login-form{
+      .login-form, .register-form{
         width: 100%;
         height: 90%;
         text-align: center;
@@ -444,5 +599,16 @@ a {
   }
   100% {
     transform: translateX(-5px);
+  }
+}
+
+@keyframes move{
+  0%, 49.99%{
+    opacity: 0;
+    z-index: 1;
+  }
+  50%, 100%{
+    opacity: 1;
+    z-index: 5;
   }
 }

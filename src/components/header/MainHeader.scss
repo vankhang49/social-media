@@ -40,6 +40,23 @@
     justify-content: end;
     align-items: center;
     height: 50px;
+    .new-message, .notification {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      background-color: var(--color-background-second);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin: 0 5px;
+      svg {
+        font-size: 1.7rem;
+        color: var(--color-dark);
+      }
+    }
+
     .avatar {
       display: flex;
       justify-content: end;
