@@ -44,6 +44,7 @@ function Index() {
             try {
                 setIsLoading(false);
                 localStorage.setItem('isAuthenticated', "authenticated");
+                localStorage.setItem('userId', '1');
                 router.push("/").catch(console.error);
                 console.log("Đăng nhập thành công!");
             } catch (error) {

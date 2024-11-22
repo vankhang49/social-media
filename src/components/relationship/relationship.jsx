@@ -4,6 +4,8 @@ import {useState} from "react";
 import sponsor1 from "../../asset/images/sponsors.jpg";
 import sponsor2 from "../../asset/images/sponsorship.jpg";
 import Image from "next/image";
+import {useDispatch} from "react-redux";
+import {addChatBox} from "@/core/redux/actions/chatBoxAction";
 
 export default function Relationship() {
     const sponsorCards = [
@@ -99,6 +101,12 @@ export default function Relationship() {
         },
     ]
 
+    const dispatch = useDispatch();
+
+    const handleOpenChat = (id, name, avatar, status, type) => {
+        dispatch(addChatBox({ id, name, avatar, status, type }));
+    };
+
     return (
         <div id={'relationship'} className={styles.relationship}>
             <div className={styles.sponsor}>
@@ -122,7 +130,11 @@ export default function Relationship() {
                     <p className={styles.title}>Friends</p>
                     <div className={styles.friendList}>
                         {friends.map((friend, index) => (
-                            <div className={styles.friendCard} key={index}>
+                            <div className={styles.friendCard}
+                                 key={index}
+                                 onClick={() => handleOpenChat(friend.friendId, friend.friendName, friend.avatar,
+                                    friend.status, "friend")}
+                            >
                                 <div className={styles.avatarAndStatus}>
                                     <Image src={friend.avatar} alt={friend.friendName}/>
                                     <div
@@ -140,7 +152,11 @@ export default function Relationship() {
                     <p className={styles.title}>Groups</p>
                     <div className={styles.groupList}>
                         {groups.map((group, index) => (
-                            <div className={styles.groupCard} key={index}>
+                            <div className={styles.groupCard}
+                                 key={index}
+                                 onClick={() => handleOpenChat(group.groupId, group.groupName, group.avatar,
+                                     group.status,"group")}
+                            >
                                 <div className={styles.avatarAndStatus}>
                                     <Image src={group.avatar} alt={group.groupName}/>
                                     <div
