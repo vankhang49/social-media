@@ -2,7 +2,7 @@ import Draggable from "react-draggable";
 import Image from "next/image";
 import avatar from "@/asset/images/my-avatar.png";
 import hi from "@/asset/gifs/wow.gif";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import postImg1 from "@/asset/images/dn1.jpg";
 import postImg2 from "@/asset/images/dn2.jpg";
 import postImg3 from "@/asset/images/dn3.jpg";
@@ -16,6 +16,7 @@ import {RiEmotionHappyFill} from "react-icons/ri";
 import {AiFillLike} from "react-icons/ai";
 import {IoMdClose} from "react-icons/io";
 import {VscChromeMinimize} from "react-icons/vsc";
+import {AudioWave} from "@/components/audioWave/AudioWave";
 
 const chatData = [
     {
@@ -124,6 +125,7 @@ const ChatBox = ({ data, onClose, isMinimized, positionIndex, updatePosition }) 
     const [userId, setUserId] = useState(null);
     const [minimize, setMinimize] = useState(isMinimized);
     const [position, setPosition] = useState({bottom: 0});
+    const chatBodyRef = useRef(null);
 
     useEffect(() => {
         const id = parseInt(localStorage.getItem("userId"));
@@ -131,11 +133,16 @@ const ChatBox = ({ data, onClose, isMinimized, positionIndex, updatePosition }) 
     },[])
 
     useEffect(() => {
-        console.log(positionIndex)
         if (minimize) {
             setPosition(positionIndex)
         }
     }, [minimize]);
+
+    useEffect(() => {
+        if (chatBodyRef.current) {
+            chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
+        }
+    }, [chatData]);
 
     const handleMinimize = () => {
         setMinimize(!minimize);
@@ -167,7 +174,7 @@ const ChatBox = ({ data, onClose, isMinimized, positionIndex, updatePosition }) 
                     ><VscChromeMinimize /></button>
                     <button className={'close-action'} onClick={onClose}><IoMdClose /></button>
                 </div>
-                <div className="chat-body">
+                <div className="chat-body" ref={chatBodyRef}>
                     {
                         chatData.map((item, index) => (
                             <div className={`chat-element ${item.senderId === userId ? "sender" : "receiver"}`} key={index}>
@@ -178,7 +185,7 @@ const ChatBox = ({ data, onClose, isMinimized, positionIndex, updatePosition }) 
                                     <Image src={image} key={index} alt={item.senderId}/>
                                 ))}
                                 {item.audios && item.audios.map((audio, index) => (
-                                    <audio src={audio} key={index} autoPlay={false} controls={true}/>
+                                    <AudioWave audio={audio} key={index} className={item.senderId === userId ? "sender" : "receiver"}/>
                                 ))}
                                 {item.icons && item.icons.map((icon, index) => (
                                     <Image src={icon} key={index} className={'icon'} alt={item.senderId}/>

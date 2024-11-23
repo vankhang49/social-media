@@ -1,0 +1,166 @@
+#audio-wave {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--color-background);
+  height: 3rem;
+  border-radius: 25px;
+  &.sender {
+      background-color: #cfcff1;
+  }
+
+  .play-audio {
+    margin-left: 10px;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
+  .wave-container {
+    position: relative;
+    height: 10px;
+    width: auto;
+    margin: 15px 10px;
+    div {
+      position: relative;
+      display: inline-block;
+      background: #85156e;
+      height: 2px;
+      width: 7px;
+      margin: 0;
+      border-radius: 25px;
+    }
+
+    &.playing {
+      div {
+        position: relative;
+        display: inline-block;
+        background: #03A9F4;
+        height: 100%;
+        width: 7px;
+        margin: 0;
+        border-radius: 25px;
+        -webkit-animation: load 3s ease-in-out infinite;
+        animation: load 3s ease-in-out infinite;
+      }
+
+      .rectangle-2 {
+        -webkit-animation-delay: 0.1s;
+        animation-delay: 0.1s;
+      }
+      .rectangle-3 {
+        -webkit-animation-delay: 0.2s;
+        animation-delay: 0.2s;
+      }
+
+      .rectangle-4 {
+        -webkit-animation-delay: 0.3s;
+        animation-delay: 0.3s;
+      }
+
+      .rectangle-5 {
+        -webkit-animation-delay: 0.4s;
+        animation-delay: 0.4s;
+      }
+
+      .rectangle-6 {
+        -webkit-animation-delay: 0.5s;
+        animation-delay: 0.5s;
+      }
+    }
+  }
+  audio {
+    display: none;
+  }
+}
+
+
+@-moz-keyframes load {
+  0%,
+  100% {
+    -moz-transform: scaleY(1);
+    background: #03A9F4;
+  }
+  16.67% {
+    -moz-transform: scaleY(3);
+    background: #FF5722;
+  }
+  33.33% {
+    -moz-transform: scaleY(1);
+    background: #FF5252;
+  }
+  50% {
+    -moz-transform: scaleY(3);
+    background: #E91E63;
+  }
+  66.67% {
+    -moz-transform: scaleY(1);
+    background: #9C27B0;
+  }
+  83.34% {
+    -moz-transform: scaleY(3);
+    background: #673AB7;
+  }
+}
+
+@-webkit-keyframes load {
+  0%,
+  100% {
+    -webkit-transform: scaleY(1);
+    background: #03A9F4;
+  }
+  16.67% {
+    -webkit-transform: scaleY(3);
+    background: #FF5722;
+  }
+  33.33% {
+    -webkit-transform: scaleY(1);
+    background: #FF5252;
+  }
+  50% {
+    -webkit-transform: scaleY(3);
+    background: #E91E63;
+  }
+  66.67% {
+    -webkit-transform: scaleY(1);
+    background: #9C27B0;
+  }
+  83.34% {
+    -webkit-transform: scaleY(3);
+    background: #673AB7;
+  }
+}
+
+@keyframes load {
+  0%,
+  100% {
+    transform: scaleY(1);
+    background: #03A9F4;
+  }
+  16.67% {
+    transform: scaleY(3);
+    background: #FF5722;
+  }
+  33.33% {
+    transform: scaleY(1);
+    background: #FF5252;
+  }
+  50% {
+    transform: scaleY(3);
+    background: #E91E63;
+  }
+  66.67% {
+    transform: scaleY(1);
+    background: #9C27B0;
+  }
+  83.34% {
+    transform: scaleY(3);
+    background: #673AB7;
+  }
+}
