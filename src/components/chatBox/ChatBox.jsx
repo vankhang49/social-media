@@ -17,6 +17,7 @@ import {AiFillLike} from "react-icons/ai";
 import {IoMdClose} from "react-icons/io";
 import {VscChromeMinimize} from "react-icons/vsc";
 import {AudioWave} from "@/components/audioWave/AudioWave";
+import {useForm} from "react-hook-form";
 
 const chatData = [
     {
@@ -121,16 +122,24 @@ const chatData = [
     },
 ];
 
-const ChatBox = ({ data, onClose, isMinimized, positionIndex, updatePosition }) => {
+const ChatBox = ({data, onClose, isMinimized, positionIndex, updatePosition}) => {
     const [userId, setUserId] = useState(null);
     const [minimize, setMinimize] = useState(isMinimized);
     const [position, setPosition] = useState({bottom: 0});
     const chatBodyRef = useRef(null);
-
+    const [chatList, setChatList] = useState(chatData);
+    const {
+        register,
+        handleSubmit,
+        formState: {errors},
+        setValue,
+        control,
+        reset
+    } = useForm({});
     useEffect(() => {
         const id = parseInt(localStorage.getItem("userId"));
         setUserId(id);
-    },[])
+    }, [])
 
     useEffect(() => {
         if (minimize) {
@@ -142,78 +151,103 @@ const ChatBox = ({ data, onClose, isMinimized, positionIndex, updatePosition }) 
         if (chatBodyRef.current) {
             chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
         }
-    }, [chatData]);
+    }, [chatList]);
 
     const handleMinimize = () => {
         setMinimize(!minimize);
     };
 
+    const onSubmit = (data) => {
+        try {
+            const chatElement = {
+                senderId: 1,
+                avatar: avatar,
+                receiverId: 2,
+                content: data.content,
+                images: null,
+                videos: null,
+                icons: null,
+                audios: null,
+            };
+            setChatList(prevState => [...prevState, chatElement]);
+            reset();
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     return (
-        <Draggable>
-            <div className={`chat-box ${minimize ? 'minimize' : ''}`}
-                 style={{
-                     position: minimize ? "fixed" : "relative",
-                     bottom: minimize ? `${position.bottom}px` : "0",
-                     right: minimize ? `20px` : "0",
-                     width: minimize ? "60px" : "300px",
-                     height: minimize ? "60px" : "400px",
-                     zIndex: minimize ? 1000 : 1,
-                 }}
-                 onClick={minimize ? handleMinimize : null}
-            >
-                <div className="chat-header">
-                    <div className="avatarAndStatus">
-                        <Image src={data.avatar} alt={data.name}/>
-                        <div
-                            className={`status ${data.status === 1 ? "on" : "off"}`}></div>
-                    </div>
-                    <div className="info">
-                        <span className="name">{data.name}</span>
-                    </div>
-                    <button className={'minimize-action'} onClick={() => { handleMinimize(); updatePosition();}}
-                    ><VscChromeMinimize /></button>
-                    <button className={'close-action'} onClick={onClose}><IoMdClose /></button>
+        <div className={`chat-box ${minimize ? 'minimize' : ''}`}
+             style={{
+                 position: minimize ? "fixed" : "relative",
+                 bottom: minimize ? `${position.bottom}px` : "0",
+                 right: minimize ? `20px` : "0",
+                 width: minimize ? "60px" : "300px",
+                 height: minimize ? "60px" : "400px",
+                 zIndex: minimize ? 1000 : 1,
+             }}
+             onClick={minimize ? handleMinimize : null}
+        >
+            <div className="chat-header">
+                <div className="avatarAndStatus">
+                    <Image src={data.avatar} alt={data.name}/>
+                    <div
+                        className={`status ${data.status === 1 ? "on" : "off"}`}></div>
                 </div>
-                <div className="chat-body" ref={chatBodyRef}>
-                    {
-                        chatData.map((item, index) => (
-                            <div className={`chat-element ${item.senderId === userId ? "sender" : "receiver"}`} key={index}>
-                                {item.videos && item.videos.map((video, index) => (
-                                    <video src={video} key={index} controls={true} muted />
-                                ))}
-                                {item.images && item.images.map((image, index) => (
-                                    <Image src={image} key={index} alt={item.senderId}/>
-                                ))}
-                                {item.audios && item.audios.map((audio, index) => (
-                                    <AudioWave audio={audio} key={index} className={item.senderId === userId ? "sender" : "receiver"}/>
-                                ))}
-                                {item.icons && item.icons.map((icon, index) => (
-                                    <Image src={icon} key={index} className={'icon'} alt={item.senderId}/>
-                                ))}
-                                { item.content &&
-                                    <p>{item.content}</p>
-                                }
-                            </div>
-                        ))
-                    }
+                <div className="info">
+                    <span className="name">{data.name}</span>
                 </div>
-                <div className="chat-footer">
-                    <button className={'chat-action'}>
-                        <TiMicrophone/>
-                    </button>
-                    <button className={'chat-action'}>
-                        <TiAttachment/>
-                    </button>
-                    <form className={'form-chat'}>
-                        <input type="text" placeholder={"Aa"}/>
-                        <RiEmotionHappyFill className={'chat-emotion'}/>
-                    </form>
-                    <button className={'chat-action'}>
-                        <AiFillLike/>
-                    </button>
-                </div>
+                <button className={'minimize-action'} onClick={() => {
+                    handleMinimize();
+                    updatePosition();
+                }}
+                ><VscChromeMinimize/></button>
+                <button className={'close-action'} onClick={onClose}><IoMdClose/></button>
             </div>
-        </Draggable>
+            <div className="chat-body" ref={chatBodyRef}>
+                {
+                    chatList && chatList.map((item, index) => (
+                        <div className={`chat-element ${item.senderId === userId ? "sender" : "receiver"}`} key={index}>
+                            {item.videos && item.videos.map((video, index) => (
+                                <video src={video} key={index} controls={true} muted/>
+                            ))}
+                            {item.images && item.images.map((image, index) => (
+                                <Image src={image} key={index} alt={item.senderId}/>
+                            ))}
+                            {item.audios && item.audios.map((audio, index) => (
+                                <AudioWave audio={audio} key={index}
+                                           className={item.senderId === userId ? "sender" : "receiver"}/>
+                            ))}
+                            {item.icons && item.icons.map((icon, index) => (
+                                <Image src={icon} key={index} className={'icon'} alt={item.senderId}/>
+                            ))}
+                            {item.content &&
+                                <p>{item.content}</p>
+                            }
+                        </div>
+                    ))
+                }
+            </div>
+            <div className="chat-footer">
+                <button className={'chat-action'}>
+                    <TiMicrophone/>
+                </button>
+                <button className={'chat-action'}>
+                    <TiAttachment/>
+                </button>
+                <form className={'form-chat'} onSubmit={handleSubmit(onSubmit)}>
+                    <input type="text"
+                           {...register("content", {
+                               required: "Không được để trống!"
+                           })}
+                           placeholder={"Aa"}/>
+                    <RiEmotionHappyFill className={'chat-emotion'}/>
+                </form>
+                <button className={'chat-action'}>
+                    <AiFillLike/>
+                </button>
+            </div>
+        </div>
     );
 };
 

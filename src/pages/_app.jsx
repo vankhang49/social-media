@@ -22,7 +22,7 @@ const InnerApp = ({ Component, pageProps }) => {
         toggleIsOpenModal,
     } = usePictures();
 
-    const appName = process.env.NEXT_PUBLIC_APP_NAME || 'Default App Name';
+    const appName = process.env.NEXT_PUBLIC_APP_NAME || 'Talk To Me';
 
     return (
         <Provider store={store}>
