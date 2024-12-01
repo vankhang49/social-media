@@ -48,7 +48,7 @@ export default function Sidebar({isOpen, className}) {
                 <h4>MENUS</h4>
                 <ul>
                     <li className={styles.active}><Link href={'/'}><IoHomeOutline /> <span>Newsfeed</span></Link></li>
-                    <li><Link href={'#'}><FiSend /> <span>Messages</span></Link></li>
+                    <li><Link href={'/messages'}><FiSend /> <span>Messages</span></Link></li>
                     <li><Link href={'#'}><FaRegHeart /> <span>Notifications</span></Link></li>
                     <li><Link href={'#'}><SlLocationPin /> <span>Locations</span></Link></li>
                     <li><Link href={'#'}><FiEdit2 /> <span>Privecy</span></Link></li>
