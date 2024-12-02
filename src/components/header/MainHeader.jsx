@@ -1,8 +1,6 @@
 import logo from "@/asset/images/logo-social-media.png";
 import Image from "next/image";
 import "./MainHeader.scss";
-import {FiMenu} from "react-icons/fi";
-import styles from "@/components/sidebars/mainSidebar.module.scss";
 import {CiLogout} from "react-icons/ci";
 import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
@@ -12,7 +10,7 @@ import {Searching} from "@/components/searching/Searching";
 import {BiSolidMessageRoundedError} from "react-icons/bi";
 import {IoNotifications} from "react-icons/io5";
 
-export function MainHeader({showSidebar}) {
+export function MainHeader({showSidebar, showNotification}) {
     const router = useRouter();
     const [authenticated, setAuthenticated] = useState(false);
 
@@ -30,6 +28,10 @@ export function MainHeader({showSidebar}) {
         showSidebar();
     }
 
+    const handleShowNotification = () => {
+        showNotification();
+    }
+
     return(
         <div id="main-header">
             <div className="menu-button">
@@ -41,7 +43,7 @@ export function MainHeader({showSidebar}) {
                     <div className="new-message">
                         <BiSolidMessageRoundedError />
                     </div>
-                    <div className="notification">
+                    <div className="notification" onClick={handleShowNotification}>
                         <IoNotifications />
                     </div>
                     <div className="avatar" onClick={handleShowSidebar}>
